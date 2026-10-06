@@ -1,16 +1,31 @@
-
+import Modal from "./components/Modal";
+import EntriesList from "./components/EntriesList";
+import { useModal } from "./hooks/useModal";
 
 function App() {
- 
+  const [isModal, open, close, handerOverlayClick] = useModal();
 
   return (
-    <div class="aura aura-gold duration-1500 ease-in-out shadow-xl">
-      <div class="card bg-base-100 ">
-        <div class="card-body ">
-          <h1 className="text-2xl font-bold">Echtzeit</h1>
+    <main className="flex min-h-screen flex-col gap-3 items-center justify-center p-24">
+      <div className="aura aura-gold duration-1500 ease-in-out shadow-xl">
+        <div className="card bg-base-100 ">
+          <button type="button" onClick={open} className="btn card-body ">
+            <p>Add Entry</p>
+          </button>
         </div>
       </div>
-    </div>
+
+      {isModal && (
+        <Modal
+          isModal={isModal}
+          onClose={close}
+          onOverlayClick={handerOverlayClick}
+        >
+          {<p>Modal content</p>}
+        </Modal>
+      )}
+      <EntriesList />
+    </main>
   );
 }
 
