@@ -1,18 +1,22 @@
 import Modal from "./Modal";
+import EntryForm from "./EntryForm";
+import EntryDetails from "./EntryDetails";
 
-import { useModal } from "../hooks/useModal";
+import { useState } from "react";
 
-const EntriesList = () => {
-  const [isModal, open, close, handerOverlayClick] = useModal();
+const EntriesList = ({ isModal, onClose, onOverlayClick }) => {
+  const [data, setData] = useState(
+    JSON.parse(localStorage.getItem("entryData")) || [],
+  );
+
   return (
     <section className="card w-full flex gap-3 shadow-xl">
       <div className="card-body">EntriesList</div>
-      <button type="button" onClick={open} className="btn btn-primary">
-        Show Details
-      </button>
+      <EntryDetails data={data} />
+
       {isModal && (
-        <Modal onClose={close} onOverlayClick={handerOverlayClick}>
-          EntriesList Modal content
+        <Modal onClose={onClose} onOverlayClick={onOverlayClick}>
+          <EntryForm closeModal={onClose} setData={setData} />
         </Modal>
       )}
     </section>
