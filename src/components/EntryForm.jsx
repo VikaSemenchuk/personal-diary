@@ -1,6 +1,6 @@
 import { getToday } from "../utils/date";
 
-const EntryForm = ({ closeModal, setData }) => {
+const EntryForm = ({ closeModal, setEntries }) => {
   const storedDaten = JSON.parse(localStorage.getItem("entryData"));
   const today = getToday();
   const exist = (el) => storedDaten?.some((data) => data.date === el);
@@ -29,21 +29,21 @@ const EntryForm = ({ closeModal, setData }) => {
 
     const newStored = storedDaten ? [...storedDaten, newData] : [newData];
     localStorage.setItem("entryData", JSON.stringify(newStored));
-    setData(newStored);
+    setEntries(newStored);
 
     e.target.reset();
     closeModal();
   }
 
-//   const onChangeHandler = (e) => {
-  function onChangeHandler  (e)  {
+  //   const onChangeHandler = (e) => {
+  function onChangeHandler(e) {
     if (exist(e.target.value)) {
       e.target.setCustomValidity("Date already exist. Come back the next day");
       e.target.reportValidity();
     } else {
       e.target.setCustomValidity("");
     }
-  };
+  }
 
   return (
     <form
@@ -75,8 +75,10 @@ const EntryForm = ({ closeModal, setData }) => {
         className="input w-full bg-gray-100"
         type="URL"
         name="imageUrl"
-              placeholder="https://..."
-              onChange={(e) => {!e.target.validity.valid && e.target.reportValidity()}}
+        placeholder="https://..."
+        onChange={(e) => {
+          !e.target.validity.valid && e.target.reportValidity();
+        }}
         required
       />
       <label htmlFor="content">Your memory</label>
