@@ -14,3 +14,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  /* /* background-color: red; */
+  filter: invert(60%); 
+}
+
