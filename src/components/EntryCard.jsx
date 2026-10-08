@@ -4,7 +4,6 @@ import { useModal } from "../hooks/useModal";
 
 const EntryCard = ({ entry, setEntries, sortedEntries }) => {
   const [isModal, open, close, handerOverlayClick] = useModal();
-  // console.log(entry);
 
   const { title, date, imageUrl } = entry;
 
@@ -13,7 +12,6 @@ const EntryCard = ({ entry, setEntries, sortedEntries }) => {
 
     setEntries(filtredEntries);
     localStorage.setItem("entryData", JSON.stringify(filtredEntries));
-    // localStorage.removeItem(id);
   };
 
   return (

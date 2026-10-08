@@ -1,5 +1,4 @@
 const EntryCardDetails = ({ entry, onClickHandler }) => {
-  console.log(entry);
   const { title, date, imageUrl, content } = entry;
   return (
     <>
