@@ -1,11 +1,132 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@custom-variant ligth (&:where([data-theme=ligth], [data-theme=ligth] *));
 
-body {
-  /* height: 100vh; */
- display: flex;
- /* background-color: white; */
+@theme {
+  --font-title: "Fraunces", Georgia, serif;
+  --font-primary: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-bg-primary: #1f1a17;
+  --color-surface: #221e1b;
+  --color-sunken: #2a2522;
+  --color-text: #f4efe8;
+  --color-text-muted: #b3a99f;
+  --color-line: #3a332e;
+  --color-line-strong: #7d7268;
+  --color-accent-cust: #e8825c;
+  --color-accent-cust-hover: #f09a78;
+  --color-on-accent-cust: #1a1310;
+  --color-accent-cust-soft: #3a2620;
+  --color-accent-cust-text: #f0a283;
+  --color-secondary-cust: #9cbb97;
+  --color-secondary-cust-soft: #24302a;
+  --color-error: #f97066;
+  --color-error-soft: #3a1d1a;
+  --color-scrim: rgb(0 0 0 / 0.64);
+
+  --text-display: clamp(2.25rem, 2.0625rem + 0.9375vw, 3rem); /* 36 → 48px */
+  --text-display--line-height: 1.08;
+  --text-display--letter-spacing: -0.02em;
+
+  --text-title-lg: clamp(1.625rem, 1.5313rem + 0.4688vw, 2rem); /* 26 → 32px */
+  --text-title-lg--line-height: 1.2;
+  --text-title-lg--letter-spacing: -0.01em;
+
+  --text-title-md: clamp(
+    1.25rem,
+    1.2188rem + 0.1563vw,
+    1.375rem
+  ); /* 20 → 22px */
+  --text-title-md--line-height: 1.27;
+
+  --text-title-sm: clamp(
+    1.0625rem,
+    1.0469rem + 0.0781vw,
+    1.125rem
+  ); /* 17 → 18px */
+  --text-title-sm--line-height: 1.33;
+
+  --text-body-lg: clamp(1rem, 0.9844rem + 0.0781vw, 1.0625rem); /* 16 → 17px */
+  --text-body-lg--line-height: 1.65;
+
+  --text-body: 0.9375rem; /* 15px
+  --text-body--line-height: 1.47;
+  --text-overline: 0.75rem; /* 12px
+  --text-overline--line-height: 1.33;
+  --text-overline--letter-spacing: 0.08em;
+
+  --shadow-card: 0 4px 8px rgb(0 0 0 / 0.4);
+  --shadow-card-hover: 0 2px 4px rgb(0 0 0 / 0.5), 0 16px 32px rgb(0 0 0 / 0.4);
+  --shadow-modal: 0 24px 64px rgb(0 0 0 / 0.6);
+
+  --container-content: 75rem; /* 1200px — max-w-content */
+
+  --radius-field: 8px;
+  --radius-card: 16px;
+  --radius-modal: 24px;
+}
+
+@layer base {
+  [data-theme="light"] {
+    --color-bg-primary: #faf7f2;
+    --color-surface: #ffffff;
+    --color-sunken: #f2ede5;
+    --color-text: #1f1a17;
+    --color-text-muted: #6b625a;
+    --color-line: #e7e0d6;
+    --color-line-strong: #8a8077;
+    --color-accent: #b5492a;
+    --color-accent-hover: #9a3d21;
+    --color-on-accent: #ffffff;
+    --color-accent-soft: #f6e3da;
+    --color-accent-text: #9a3d21;
+    --color-secondary-cust: #4f6a4c;
+    --color-secondary-cust-soft: #e6eee3;
+    --color-error: #b42318;
+    --color-error-soft: #fdecea;
+    --color-scrim: rgb(31 26 23 / 0.48);
+
+     --shadow-card: 0 1px 2px rgb(31 26 23 / 0.06), 0 4px 12px rgb(31 26 23 / 0.04);
+  --shadow-card-hover: 0 2px 4px rgb(31 26 23 / 0.06), 0 16px 32px rgb(31 26 23 / 0.10);
+  --shadow-modal: 0 24px 64px rgb(31 26 23 / 0.20);
+
+  }
+
+  body {
+    @apply min-h-dvh bg-bg-primary text-text font-primary antialiased;
+    font-size: var(--text-body); /* 0.9375rem = 15px */
+    line-height: var(--text-body--line-height);
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-title font-semibold text-text;
+  }
+  h1 {
+    @apply text-display;
+  }
+  h2 {
+    @apply text-title-lg;
+  }
+  h3 {
+    @apply text-title-sm;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: max(1rem, var(--text-body));
+  }
+  :focus-visible {
+    @apply outline-3 outline-offset-2 outline-accent-cust;
+  }
+}
+
+/* body {
+ 
+  display: flex;
+  background-color: white;
   justify-content: center;
   align-items: center;
   gap: 10rem;
@@ -13,13 +134,12 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
 input[type="date"]::-webkit-calendar-picker-indicator {
   width: 20px;
   height: 20px;
   cursor: pointer;
   /* /* background-color: red; */
-  filter: invert(60%); 
+  filter: invert(60%);
 }
-

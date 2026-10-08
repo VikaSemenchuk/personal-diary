@@ -2,15 +2,19 @@ import logo from "../assets/logo.png";
 
 const Logo = () => {
   return (
-      <div className="wrapper flex items-center ">
+    <div className="flex items-center">
       <img
         src={logo}
-        className="h-15 w-15 object-contain drop-shadow-sm rounded-full  drop-shadow-[#E6EEE3]"
+        className="size-18 shrink-0 rounded-full object-contain "
         alt="Personal Diary logo"
       />
-      <div>
-        <p className="text-[10px] italic">Echtzeit</p>
-        <p className="text-[10px] italic">Sei hier</p>
+      <div className="leading-none">
+        <p className="font-title text-title-sm font-semibold text-secondary-cust">
+          Echtzeit
+        </p>
+        <p className="mt-0.5 text-overline uppercase text-text-muted">
+          Sei hier
+        </p>
       </div>
     </div>
   );

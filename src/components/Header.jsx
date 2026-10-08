@@ -1,19 +1,17 @@
 import Logo from "./Logo";
+import Button from "./Button";
+import { PlusIcon } from "./icons";
+
 const Header = ({ onClick }) => {
   return (
-    <header className="sticky top-0 z-50 bg-[#3A332E]/30  backdrop-blur-3xl shadow-lg shadow-[#3A332E]  ">
-      <div className="container flex justify-between items-center p-4">
+    <header className="sticky top-0 z-40 border-b border-line shadow-accent-cust-soft shadow-2xl bg-bg-primary/80 backdrop-blur-md">
+      <div className="mx-auto flex w-full max-w-content items-center justify-between gap-4 px-2 md:px-4 py-1 md:py-2 sm:px-8 sm:py-3">
         <Logo />
 
-        <div className="aura aura-gold duration-1500 ease-in-out shadow-xl rounded-3xl">
-          <button
-            type="button"
-            onClick={onClick}
-            className="btn text-[12px] p-2 h-auto rounded-3xl"
-          >
-            + Add Entry
-          </button>
-        </div>
+        <Button onClick={onClick} className="px-4 sm:px-5">
+          <PlusIcon />
+          Add Entry
+        </Button>
       </div>
     </header>
   );
