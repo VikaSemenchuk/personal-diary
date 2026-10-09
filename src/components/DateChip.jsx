@@ -1,14 +1,18 @@
 import { CalendarIcon } from "./icons";
 import { formatDate, getToday } from "../utils/date";
 
-// Чип дати. Сьогоднішній запис — зелений і з написом "Today".
 const DateChip = ({ date, long = false }) => {
   const isToday = date === getToday();
 
   const label = isToday
     ? "Today"
     : long
-      ? formatDate(date, { weekday: "long", month: "short", day: "2-digit", year: "numeric" })
+      ? formatDate(date, {
+          weekday: "long",
+          month: "short",
+          day: "2-digit",
+          year: "numeric",
+        })
       : formatDate(date);
 
   const colors = isToday
