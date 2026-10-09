@@ -10,7 +10,7 @@ const EntryCardDetails = ({ entry, onClickHandler, onEdit }) => {
       <img
         src={imageUrl}
         alt={capitalize(title)}
-        className="mb-5 aspect-video w-full rounded-card bg-sunken object-cover lg:float-left lg:mr-8 lg:mb-4 lg:aspect-4/3 lg:w-[45%]"
+        className="mb-5 aspect-video w-full rounded-card bg-sunken object-cover lg:float-right lg:ml-8 lg:mb-4 lg:aspect-4/3 lg:w-[45%]"
       />
 
       <DateChip date={date} long />
