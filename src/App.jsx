@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
 import Toasts from "./components/Toasts";
 
 import { useModal } from "./hooks/useModal";
@@ -10,7 +11,8 @@ function App() {
   const [toasts, showToast, hideToast] = useToast();
 
   return (
-    <>
+ 
+    <div className="flex min-h-dvh flex-col">
       <Header onClick={open} />
       <Home
         isModal={isModal}
@@ -19,8 +21,9 @@ function App() {
         animation={animation}
         showToast={showToast}
       />
+      <Footer />
       <Toasts toasts={toasts} onClose={hideToast} />
-    </>
+    </div>
   );
 }
 

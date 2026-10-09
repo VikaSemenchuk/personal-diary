@@ -1,9 +1,7 @@
 import logo from "../assets/logo.png";
 
-// Лого — посилання-якір на початок сторінки.
-// href="#top" — особливе значення в HTML: браузер прокручує на самий верх,
-// навіть якщо елемента з id="top" немає. Плавність дає scroll-behavior: smooth в index.css.
-const Logo = () => {
+
+const Logo = ({ compact = false }) => {
   return (
     <a
       href="#top"
@@ -12,7 +10,7 @@ const Logo = () => {
     >
       <img
         src={logo}
-        className="size-18 shrink-0 rounded-full object-contain transition-transform duration-300 ease-out motion-safe:group-hover:-rotate-6 motion-safe:group-hover:scale-105"
+        className={`${compact ? "size-12" : "size-18"} shrink-0 rounded-full object-contain transition-transform duration-300 ease-out motion-safe:group-hover:-rotate-6 motion-safe:group-hover:scale-105`}
         alt=""
       />
       <div className="leading-none">
