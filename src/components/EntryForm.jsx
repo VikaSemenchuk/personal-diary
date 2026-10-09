@@ -31,7 +31,7 @@ const EntryForm = ({ closeModal, setEntries, entry = null }) => {
 
     if (exist(e.currentTarget.date.value)) {
       e.currentTarget.date.setCustomValidity(
-        "Date already exist. Come back the next day.",
+        "Für dieses Datum gibt es schon einen Eintrag. Komm morgen wieder.",
       );
 
       return;
@@ -54,7 +54,7 @@ const EntryForm = ({ closeModal, setEntries, entry = null }) => {
   //   const onChangeHandler = (e) => {
   function onChangeHandler(e) {
     if (exist(e.target.value)) {
-      e.target.setCustomValidity("Date already exist. Come back the next day");
+      e.target.setCustomValidity("Für dieses Datum gibt es schon einen Eintrag. Komm morgen wieder.");
       e.target.reportValidity();
     } else {
       e.target.setCustomValidity("");
@@ -65,19 +65,19 @@ const EntryForm = ({ closeModal, setEntries, entry = null }) => {
     <form onSubmit={submitHendler} className="flex flex-col">
       <div className="px-5 pt-5 pr-16 sm:px-8 sm:pt-6">
         <h2 className="text-title-md">
-          {isEditing ? "Edit entry" : "New entry"}
+          {isEditing ? "Eintrag bearbeiten" : "Neuer Eintrag"}
         </h2>
         <p className="mt-1 text-sm text-text-muted">
           {isEditing
-            ? "Change anything you like and save."
-            : "One entry per day. All fields are required."}
+            ? "Ändere, was du möchtest, und speichere."
+            : "Ein Eintrag pro Tag. Alle Felder sind Pflichtfelder."}
         </p>
       </div>
 
       <div className="grid gap-5 px-5 py-6 sm:px-8">
         <div className="grid gap-2">
           <label htmlFor="title" className={labelClass}>
-            Title
+            Titel
           </label>
           <input
             id="title"
@@ -85,7 +85,7 @@ const EntryForm = ({ closeModal, setEntries, entry = null }) => {
             type="text"
             name="title"
             defaultValue={entry?.title}
-            placeholder="Title"
+            placeholder="Titel"
             required
           />
         </div>
@@ -93,7 +93,7 @@ const EntryForm = ({ closeModal, setEntries, entry = null }) => {
         <div className="grid gap-5 sm:grid-cols-2 sm:items-start">
           <div className="grid gap-2">
             <label htmlFor="date" className={labelClass}>
-              Date
+              Datum
             </label>
             <input
               id="date"
@@ -109,7 +109,7 @@ const EntryForm = ({ closeModal, setEntries, entry = null }) => {
 
           <div className="grid gap-2">
             <label htmlFor="imageUrl" className={labelClass}>
-              Image URL
+              Bild-URL
             </label>
             <input
               id="imageUrl"
@@ -128,14 +128,14 @@ const EntryForm = ({ closeModal, setEntries, entry = null }) => {
 
         <div className="grid gap-2">
           <label htmlFor="content" className={labelClass}>
-            Your memory
+            Deine Erinnerung
           </label>
           <textarea
             id="content"
             className={`${fieldClass} min-h-36 resize-y`}
             name="content"
             defaultValue={entry?.content}
-            placeholder="Tell me everything"
+            placeholder="Erzähl mir alles …"
             required
           />
         </div>
@@ -147,10 +147,10 @@ const EntryForm = ({ closeModal, setEntries, entry = null }) => {
           onClick={closeModal}
           className="w-full sm:w-auto"
         >
-          Cancel
+          Abbrechen
         </Button>
         <Button type="submit" className="w-full sm:w-auto">
-          {isEditing ? "Save changes" : "Submit"}
+          {isEditing ? "Änderungen speichern" : "Speichern"}
         </Button>
       </div>
     </form>

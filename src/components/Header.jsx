@@ -18,7 +18,7 @@ const Header = ({ onClick }) => {
 
         <Button onClick={onClick} className="px-4 sm:px-5 md:justify-self-end">
           <PlusIcon className="size-5 transition-transform duration-300 ease-out motion-safe:group-hover/btn:rotate-90" />
-          Add Entry
+          Neuer Eintrag
         </Button>
       </div>
     </header>

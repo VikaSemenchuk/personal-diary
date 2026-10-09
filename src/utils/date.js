@@ -13,7 +13,7 @@ export function formatDate(
   options = { month: "short", day: "2-digit", year: "numeric" },
 ) {
   const [year, month, day] = isoDate.split("-").map(Number);
-  return new Date(year, month - 1, day).toLocaleDateString("en-US", options);
+  return new Date(year, month - 1, day).toLocaleDateString("de-DE", options);
 }
 
 export function getTodayLabel() {

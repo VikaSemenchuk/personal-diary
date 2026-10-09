@@ -77,18 +77,18 @@ const EntryCard = ({ entry, setEntries, sortedEntries, index = 0 }) => {
           <Button
             variant="danger"
             onClick={deleteWithAnimation}
-            aria-label={`Delete entry ${title}`}
+            aria-label={`Eintrag „${title}“ löschen`}
             className="px-3"
           >
             <TrashIcon className="size-4 transition-transform duration-200 motion-safe:group-hover/btn:-rotate-12" />
-            Delete
+            Löschen
           </Button>
 
           <Button
             variant="soft"
             onClick={openDetails}
             aria-haspopup="dialog"
-            aria-label={`Show details: ${title}`}
+            aria-label={`Details anzeigen: ${title}`}
             className="pr-3 pl-4"
           >
             Details

@@ -25,12 +25,12 @@ const EntryCardDetails = ({ entry, onClickHandler, onEdit }) => {
       <div className="clear-both flex items-center justify-between gap-3 border-t border-line pt-4 mt-8">
         <Button variant="danger" onClick={onClickHandler} className="px-3">
           <TrashIcon className="size-4 transition-transform duration-200 motion-safe:group-hover/btn:-rotate-12" />
-          Delete entry
+          Eintrag löschen
         </Button>
 
         <Button variant="secondary" onClick={onEdit}>
           <PencilIcon className="size-4 transition-transform duration-200 motion-safe:group-hover/btn:-rotate-12" />
-          Edit
+          Bearbeiten
         </Button>
       </div>
     </article>
