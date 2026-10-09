@@ -5,7 +5,7 @@ import Modal from "./Modal";
 import EntryForm from "./EntryForm";
 import { getToday, getTodayLabel } from "../utils/date";
 
-const Home = ({ isModal, close, handerOverlayClick, animation }) => {
+const Home = ({ isModal, close, handerOverlayClick, animation, showToast }) => {
   const [entries, setEntries] = useState(null);
 
   const count = entries?.length ?? 0;
@@ -32,11 +32,19 @@ const Home = ({ isModal, close, handerOverlayClick, animation }) => {
           onOverlayClick={handerOverlayClick}
           animation={animation}
         >
-          <EntryForm closeModal={() => close()} setEntries={setEntries} />
+          <EntryForm
+            closeModal={() => close()}
+            setEntries={setEntries}
+            showToast={showToast}
+          />
         </Modal>
       )}
 
-      <EntriesList entries={entries} setEntries={setEntries} />
+      <EntriesList
+        entries={entries}
+        setEntries={setEntries}
+        showToast={showToast}
+      />
     </main>
   );
 };

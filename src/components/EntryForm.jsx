@@ -8,7 +8,7 @@ const fieldClass =
   "user-invalid:border-error";
 const labelClass = "text-sm font-semibold text-text";
 
-const EntryForm = ({ closeModal, setEntries, entry = null }) => {
+const EntryForm = ({ closeModal, setEntries, showToast, entry = null }) => {
   const isEditing = entry !== null;
   const storedDaten = JSON.parse(localStorage.getItem("entryData"));
   const today = getToday();
@@ -30,7 +30,12 @@ const EntryForm = ({ closeModal, setEntries, entry = null }) => {
     };
 
     if (exist(e.currentTarget.date.value)) {
+    
       e.currentTarget.date.setCustomValidity(
+        "Für dieses Datum gibt es schon einen Eintrag. Komm morgen wieder.",
+      );
+      showToast(
+        "error",
         "Für dieses Datum gibt es schon einen Eintrag. Komm morgen wieder.",
       );
 
@@ -44,8 +49,18 @@ const EntryForm = ({ closeModal, setEntries, entry = null }) => {
       : storedDaten
         ? [...storedDaten, newData]
         : [newData];
-    localStorage.setItem("entryData", JSON.stringify(newStored));
+  
+    try {
+      localStorage.setItem("entryData", JSON.stringify(newStored));
+    } catch {
+      showToast("error", "Speichern fehlgeschlagen. Bitte versuche es noch einmal.");
+      return;
+    }
     setEntries(newStored);
+    showToast(
+      "success",
+      isEditing ? "Änderungen gespeichert." : "Eintrag gespeichert.",
+    );
 
     e.target.reset();
     closeModal();

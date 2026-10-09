@@ -45,3 +45,17 @@ export const PencilIcon = ({ className = "size-4" }) => (
     <path d="M14 8l2 2" />
   </svg>
 );
+
+export const CheckIcon = ({ className = "size-5" }) => (
+  <svg {...base} className={className}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M8 12.5l2.5 2.5L16 9.5" />
+  </svg>
+);
+
+export const AlertIcon = ({ className = "size-5" }) => (
+  <svg {...base} className={className}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 7v6M12 16.5h.01" />
+  </svg>
+);

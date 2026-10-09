@@ -9,7 +9,7 @@ import { capitalize } from "../utils/text";
 import { useModal, CLOSE_DURATION } from "../hooks/useModal";
 
 const REMOVE_DURATION = 250;
-const EntryCard = ({ entry, setEntries, sortedEntries, index = 0 }) => {
+const EntryCard = ({ entry, setEntries, sortedEntries, showToast, index = 0 }) => {
   const [isModal, open, close, handerOverlayClick, animation] = useModal();
 
   const [isEditing, setIsEditing] = useState(false);
@@ -18,16 +18,31 @@ const EntryCard = ({ entry, setEntries, sortedEntries, index = 0 }) => {
 
   const { title, date, imageUrl, content } = entry;
 
+  
   const onClickHandler = () => {
     const filtredEntries = sortedEntries.filter((arr) => arr.id !== entry.id);
 
+    
+    try {
+      localStorage.setItem("entryData", JSON.stringify(filtredEntries));
+    } catch {
+      showToast("error", "Löschen fehlgeschlagen. Bitte versuche es noch einmal.");
+      return false;
+    }
+
     setEntries(filtredEntries);
-    localStorage.setItem("entryData", JSON.stringify(filtredEntries));
+    return true;
   };
 
   const deleteWithAnimation = () => {
     setIsRemoving(true);
-    setTimeout(onClickHandler, REMOVE_DURATION);
+    setTimeout(() => {
+      if (onClickHandler()) {
+        showToast("success", "Eintrag gelöscht.");
+      } else {
+        setIsRemoving(false); // помилка — повертаємо картку на місце
+      }
+    }, REMOVE_DURATION);
   };
 
   const deleteFromDetails = () => {
@@ -109,6 +124,7 @@ const EntryCard = ({ entry, setEntries, sortedEntries, index = 0 }) => {
               <EntryForm
                 entry={entry}
                 setEntries={setEntries}
+                showToast={showToast}
                 closeModal={() => setIsEditing(false)}
               />
             ) : (

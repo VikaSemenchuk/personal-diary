@@ -77,6 +77,7 @@
   --animate-modal-out: modal-out 200ms ease-in both;
   --animate-sheet-in: sheet-in 380ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
   --animate-sheet-out: sheet-out 200ms ease-in both;
+  --animate-toast-in: toast-in 350ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 
   @keyframes fade-in {
     from {
@@ -121,6 +122,10 @@
     }
   }
 
+ 
+  @keyframes toast-in {
+    from { opacity: 0; transform: translateY(-12px) scale(0.97); }
+  }
   @keyframes sheet-in {
     from {
       transform: translateY(100%);

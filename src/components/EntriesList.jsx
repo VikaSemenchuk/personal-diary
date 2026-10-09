@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import EntryCard from "./EntryCard";
 
-const EntriesList = ({ entries, setEntries }) => {
+const EntriesList = ({ entries, setEntries, showToast }) => {
   useEffect(() => {
     const storedEntries = JSON.parse(localStorage.getItem("entryData")) || [];
     setEntries(storedEntries);
@@ -30,6 +30,7 @@ const EntriesList = ({ entries, setEntries }) => {
           entry={entry}
           setEntries={setEntries}
           sortedEntries={sortedEntries}
+          showToast={showToast}
         />
       ))}
     </ul>
