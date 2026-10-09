@@ -4,7 +4,7 @@ import Home from "./components/Home";
 import { useModal } from "./hooks/useModal";
 
 function App() {
-  const [isModal, open, close, handerOverlayClick] = useModal();
+  const [isModal, open, close, handerOverlayClick, animation] = useModal();
 
   return (
     <>
@@ -13,6 +13,7 @@ function App() {
         isModal={isModal}
         close={close}
         handerOverlayClick={handerOverlayClick}
+        animation={animation}
       />
     </>
   );

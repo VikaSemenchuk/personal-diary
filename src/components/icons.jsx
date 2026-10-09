@@ -1,5 +1,3 @@
-// Лінійні іконки 24×24. Розмір задається класом (size-4, size-5),
-// колір береться з тексту батька (currentColor).
 const base = {
   viewBox: "0 0 24 24",
   fill: "none",
@@ -32,5 +30,18 @@ export const CalendarIcon = ({ className = "size-3.5" }) => (
 export const TrashIcon = ({ className = "size-4" }) => (
   <svg {...base} className={className}>
     <path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3" />
+  </svg>
+);
+
+export const ChevronRightIcon = ({ className = "size-4" }) => (
+  <svg {...base} className={className}>
+    <path d="M9 6l6 6-6 6" />
+  </svg>
+);
+
+export const PencilIcon = ({ className = "size-4" }) => (
+  <svg {...base} className={className}>
+    <path d="M4 20h4L18.5 9.5a2.1 2.1 0 0 0-3-3L5 17v3z" />
+    <path d="M14 8l2 2" />
   </svg>
 );

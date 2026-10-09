@@ -50,9 +50,9 @@
   --text-body-lg: clamp(1rem, 0.9844rem + 0.0781vw, 1.0625rem); /* 16 → 17px */
   --text-body-lg--line-height: 1.65;
 
-  --text-body: 0.9375rem; /* 15px
+  --text-body: 0.9375rem; /* 15px */
   --text-body--line-height: 1.47;
-  --text-overline: 0.75rem; /* 12px
+  --text-overline: 0.75rem; /* 12px */
   --text-overline--line-height: 1.33;
   --text-overline--letter-spacing: 0.08em;
 
@@ -60,11 +60,77 @@
   --shadow-card-hover: 0 2px 4px rgb(0 0 0 / 0.5), 0 16px 32px rgb(0 0 0 / 0.4);
   --shadow-modal: 0 24px 64px rgb(0 0 0 / 0.6);
 
-  --container-content: 75rem; /* 1200px — max-w-content */
+  --container-content: 75rem;
+  --container-card: clamp(16rem, 12rem + 10vw, 22rem); /* w-card */
 
   --radius-field: 8px;
   --radius-card: 16px;
   --radius-modal: 24px;
+
+  --animate-fade-in: fade-in 250ms ease-out both;
+  --animate-fade-out: fade-out 200ms ease-in both;
+
+  --animate-fade-up: fade-up 500ms cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  --animate-card-out: card-out 250ms ease-in both;
+
+  --animate-modal-in: modal-in 420ms cubic-bezier(0.34, 1.25, 0.64, 1) both;
+  --animate-modal-out: modal-out 200ms ease-in both;
+  --animate-sheet-in: sheet-in 380ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-sheet-out: sheet-out 200ms ease-in both;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes fade-out {
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+  }
+  @keyframes card-out {
+    to {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+
+  @keyframes modal-in {
+    from {
+      opacity: 0;
+      transform: translate(var(--from-x, 0px), var(--from-y, 24px)) scale(0.2);
+    }
+    40% {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes modal-out {
+    to {
+      opacity: 0;
+      transform: translate(var(--from-x, 0px), var(--from-y, 24px)) scale(0.2);
+    }
+  }
+
+  @keyframes sheet-in {
+    from {
+      transform: translateY(100%);
+    }
+  }
+  @keyframes sheet-out {
+    to {
+      transform: translateY(100%);
+    }
+  }
 }
 
 @layer base {
@@ -76,21 +142,31 @@
     --color-text-muted: #6b625a;
     --color-line: #e7e0d6;
     --color-line-strong: #8a8077;
-    --color-accent: #b5492a;
-    --color-accent-hover: #9a3d21;
-    --color-on-accent: #ffffff;
-    --color-accent-soft: #f6e3da;
-    --color-accent-text: #9a3d21;
+    --color-accent-cust: #b5492a;
+    --color-accent-cust-hover: #9a3d21;
+    --color-on-accent-cust: #ffffff;
+    --color-accent-cust-soft: #f6e3da;
+    --color-accent-cust-text: #9a3d21;
     --color-secondary-cust: #4f6a4c;
     --color-secondary-cust-soft: #e6eee3;
     --color-error: #b42318;
     --color-error-soft: #fdecea;
     --color-scrim: rgb(31 26 23 / 0.48);
 
-     --shadow-card: 0 1px 2px rgb(31 26 23 / 0.06), 0 4px 12px rgb(31 26 23 / 0.04);
-  --shadow-card-hover: 0 2px 4px rgb(31 26 23 / 0.06), 0 16px 32px rgb(31 26 23 / 0.10);
-  --shadow-modal: 0 24px 64px rgb(31 26 23 / 0.20);
+    --shadow-card:
+      0 1px 2px rgb(31 26 23 / 0.06), 0 4px 12px rgb(31 26 23 / 0.04);
+    --shadow-card-hover:
+      0 2px 4px rgb(31 26 23 / 0.06), 0 16px 32px rgb(31 26 23 / 0.1);
+    --shadow-modal: 0 24px 64px rgb(31 26 23 / 0.2);
+  }
 
+  html {
+    scrollbar-gutter: stable;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   body {
