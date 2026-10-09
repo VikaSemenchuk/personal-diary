@@ -20,9 +20,9 @@ const Home = ({ isModal, close, handerOverlayClick, animation }) => {
         >
           {getTodayLabel()}
         </time>
-        <h1>My Diary</h1>
+        <h1>Mein Tagebuch</h1>
         <p className="mt-2 text-text-muted">
-          {count} {count === 1 ? "entry" : "entries"} · newest first
+          {count} {count === 1 ? "Eintrag" : "Einträge"} · neueste zuerst
         </p>
       </section>
 

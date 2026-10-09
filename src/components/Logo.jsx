@@ -1,12 +1,19 @@
 import logo from "../assets/logo.png";
 
+// Лого — посилання-якір на початок сторінки.
+// href="#top" — особливе значення в HTML: браузер прокручує на самий верх,
+// навіть якщо елемента з id="top" немає. Плавність дає scroll-behavior: smooth в index.css.
 const Logo = () => {
   return (
-    <div className="flex items-center">
+    <a
+      href="#top"
+      aria-label="Echtzeit – zum Seitenanfang"
+      className="group flex items-center rounded-full pr-3 transition-opacity duration-200 hover:opacity-85"
+    >
       <img
         src={logo}
-        className="size-18 shrink-0 rounded-full object-contain "
-        alt="Personal Diary logo"
+        className="size-18 shrink-0 rounded-full object-contain transition-transform duration-300 ease-out motion-safe:group-hover:-rotate-6 motion-safe:group-hover:scale-105"
+        alt=""
       />
       <div className="leading-none">
         <p className="font-title text-title-sm font-semibold text-secondary-cust">
@@ -16,7 +23,7 @@ const Logo = () => {
           Sei hier
         </p>
       </div>
-    </div>
+    </a>
   );
 };
 

@@ -29,7 +29,7 @@ const Modal = ({
     const opener = document.activeElement;
     document.body.style.overflow = "hidden";
     document
-      .querySelector('[role="dialog"] [aria-label="Close"]')
+      .querySelector('[role="dialog"] [aria-label="Schließen"]')
       ?.focus({ preventScroll: true });
     return () => {
       document.body.style.overflow = "";
@@ -59,7 +59,7 @@ const Modal = ({
         <button
           className="absolute top-3 right-3 grid size-10 cursor-pointer place-items-center rounded-full bg-sunken/80 text-text backdrop-blur-sm transition-[background-color,rotate] duration-300 ease-out hover:bg-line motion-safe:hover:rotate-90 sm:top-4 sm:right-4"
           type="button"
-          aria-label="Close"
+          aria-label="Schließen"
           onClick={() => onClose()}
         >
           <XIcon />

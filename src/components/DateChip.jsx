@@ -5,7 +5,7 @@ const DateChip = ({ date, long = false }) => {
   const isToday = date === getToday();
 
   const label = isToday
-    ? "Today"
+    ? "Heute"
     : long
       ? formatDate(date, {
           weekday: "long",

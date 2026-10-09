@@ -12,10 +12,10 @@ const EntriesList = ({ entries, setEntries }) => {
   if (entries && entries.length === 0) {
     return (
       <div className="mx-auto grid max-w-xl motion-safe:animate-fade-up motion-reduce:animate-fade-in justify-items-center gap-3 rounded-card border-[1.5px] border-dashed border-line-strong bg-surface px-6 py-12 text-center sm:py-16">
-        <h2 className="text-title-md">Your diary is empty</h2>
+        <h2 className="text-title-md">Dein Tagebuch ist leer</h2>
         <p className="max-w-[36ch] text-text-muted">
-          Tap <span className="font-semibold text-text">Add Entry</span> to
-          write your first memory — a few lines about today is enough.
+          Tippe auf <span className="font-semibold text-text">Neuer Eintrag</span>,
+          um deine erste Erinnerung festzuhalten – ein paar Zeilen über heute reichen.
         </p>
       </div>
     );
